@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.example.domain.Student">
+    <!--@mbg.generated-->
+    <!--@Table `student`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="zhuanye" jdbcType="VARCHAR" property="zhuanye" />
+    <result column="nianji" jdbcType="VARCHAR" property="nianji" />
+    <result column="banji" jdbcType="VARCHAR" property="banji" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `role`, `username`, `password`, `zhuanye`, `nianji`, `banji`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `student`
+    where `id` = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `student`
+    where `id` = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.domain.Student" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `student` (`role`, `username`, `password`, 
+      `zhuanye`, `nianji`, `banji`
+      )
+    values (#{role,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{zhuanye,jdbcType=VARCHAR}, #{nianji,jdbcType=VARCHAR}, #{banji,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.domain.Student" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `student`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="role != null">
+        `role`,
+      </if>
+      <if test="username != null">
+        `username`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="zhuanye != null">
+        `zhuanye`,
+      </if>
+      <if test="nianji != null">
+        `nianji`,
+      </if>
+      <if test="banji != null">
+        `banji`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuanye != null">
+        #{zhuanye,jdbcType=VARCHAR},
+      </if>
+      <if test="nianji != null">
+        #{nianji,jdbcType=VARCHAR},
+      </if>
+      <if test="banji != null">
+        #{banji,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.domain.Student">
+    <!--@mbg.generated-->
+    update `student`
+    <set>
+      <if test="role != null">
+        `role` = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        `username` = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuanye != null">
+        `zhuanye` = #{zhuanye,jdbcType=VARCHAR},
+      </if>
+      <if test="nianji != null">
+        `nianji` = #{nianji,jdbcType=VARCHAR},
+      </if>
+      <if test="banji != null">
+        `banji` = #{banji,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.domain.Student">
+    <!--@mbg.generated-->
+    update `student`
+    set `role` = #{role,jdbcType=VARCHAR},
+      `username` = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      `zhuanye` = #{zhuanye,jdbcType=VARCHAR},
+      `nianji` = #{nianji,jdbcType=VARCHAR},
+      `banji` = #{banji,jdbcType=VARCHAR}
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findByUsernameAndPassword" resultMap="BaseResultMap">
+    select * from `student`
+    where `username` = #{param1,jdbcType=VARCHAR}
+    and `password` = #{param2,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CallMapper">
+  <resultMap id="BaseResultMap" type="com.example.domain.Call">
+    <!--@mbg.generated-->
+    <!--@Table `call`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_id" jdbcType="INTEGER" property="course_id" />
+    <result column="latitude" jdbcType="FLOAT" property="latitude" />
+    <result column="longitude" jdbcType="FLOAT" property="longitude" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `course_id`, `latitude`, `longitude`, `create_time`, `update_time`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `call`
+    where `id` = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `call`
+    where `id` = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.domain.Call" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `call` (`course_id`, `latitude`, `longitude`, 
+      `create_time`, `update_time`)
+    values (#{course_id,jdbcType=INTEGER}, #{latitude,jdbcType=FLOAT}, #{longitude,jdbcType=FLOAT},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.domain.Call" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `call`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="course_id != null">
+        `course_id`,
+      </if>
+      <if test="latitude != null">
+        `latitude`,
+      </if>
+      <if test="longitude != null">
+        `longitude`,
+      </if>
+      <if test="createTime != null">
+        `create_time`,
+      </if>
+      <if test="updateTime != null">
+        `update_time`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="course_id != null">
+        #{course_id,jdbcType=INTEGER},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.domain.Call">
+    <!--@mbg.generated-->
+    update `call`
+    <set>
+      <if test="course_id != null">
+        `course_id` = #{course_id,jdbcType=INTEGER},
+      </if>
+      <if test="latitude != null">
+        `latitude` = #{latitude,jdbcType=FLOAT},
+      </if>
+      <if test="longitude != null">
+        `longitude` = #{longitude,jdbcType=FLOAT},
+      </if>
+      <if test="createTime != null">
+        `create_time` = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        `update_time` = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.domain.Call">
+    <!--@mbg.generated-->
+    update `call`
+    set `course_id` = #{course_id,jdbcType=INTEGER},
+      `latitude` = #{latitude,jdbcType=FLOAT},
+      `longitude` = #{longitude,jdbcType=FLOAT},
+      `create_time` = #{createTime,jdbcType=TIMESTAMP},
+      `update_time` = #{updateTime,jdbcType=TIMESTAMP}
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="listByCourseId" resultMap="BaseResultMap">
+    select * from `call` where course_id = #{course_id,jdbcType=INTEGER} and
+    create_time=(select max(create_time) from `call`)
+  </select>
+
+  <select id="listByAll" resultType="com.example.domain.CallAndSign">
+    select * from `call` a left join `sign` s on a.`id` = s.`call_id`
+    where `course_id` = #{course_id,jdbcType=INTEGER}
+  </select>
+</mapper>
