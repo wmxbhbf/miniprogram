@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/login_t/index",
+    "pages/login_s/index",
+    "pages/index_s/index",
+    "pages/record_s/index",
+    "pages/document/index",
+    "pages/mine_s/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FDFDFD",
+    "navigationBarTitleText": "考勤系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [{
+        "pagePath": "pages/index_s/index",
+        "text": "首页"
+      }, {
+        "pagePath": "pages/record_s/index",
+        "text": "签到"
+      }, {
+        "pagePath": "pages/document/index",
+        "text": "记录"
+      },{
+        "pagePath": "pages/mine_s/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json",
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于签到"
+    }
+  }
+}
