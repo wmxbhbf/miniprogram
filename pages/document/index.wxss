@@ -1,0 +1,7 @@
+#document{
+  width: 100%;
+  background: #EAEAEA;
+}
+.cell{
+  padding-top: 30rpx;
+}

@@ -1,0 +1,37 @@
+<view id="mine">
+  <view class="header">
+    <view class="image">
+      <image src="/images/登陆.png"/>
+    </view>
+  </view>
+  <view wx:if="{{role=='学生'}}">
+    <view class="cell">
+      <van-cell-group inset>
+        <van-cell title="姓名" value="{{myname}}" />
+        <van-cell title="ID" value="{{myid}}" />
+      </van-cell-group>
+    </view>
+    <view class="cell">
+      <van-cell-group inset>
+        <van-cell title="签到记录" value="内容" />
+        <van-cell title="我的课程" value="内容" />
+      </van-cell-group>
+    </view>
+  </view>
+  <view wx:else="{{role=='教师'}}">
+    <view class="cell">
+      <van-cell-group inset>
+        <van-cell title="姓名" value="{{myname}}" />
+        <van-cell title="ID" value="{{myid}}" />
+        <van-cell 
+          is-link 
+          link-type="switchTab"
+          url="/pages/document/index"
+          title="签到记录" />
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="button">
+    <van-button type="primary" bindtap="clear">退出登录</van-button>
+  </view>
+</view>

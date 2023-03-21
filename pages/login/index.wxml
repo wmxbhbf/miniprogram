@@ -1,0 +1,5 @@
+<view class="content">
+  <image src="/images/登陆.png" mode="widthFix"></image>
+  <navigator class="teacher" url="/pages/login_t/index">教师登陆</navigator>
+  <navigator class="student" url="/pages/login_s/index">学生登录</navigator>
+</view>

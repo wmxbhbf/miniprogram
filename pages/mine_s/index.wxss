@@ -1,0 +1,37 @@
+#mine{
+  width: 100%;
+  height: 100%;
+  background: #EAEAEA;
+}
+.header{
+  width: 100%;
+  height: 450rpx;
+  background: skyblue;
+}
+.image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+image{
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 50%;
+  margin-top: 60rpx;
+}
+.cell{
+  margin-top: 40rpx;
+}
+.van-cell__title{
+  color: #000;
+  font-size: 40rpx;
+}
+.van-cell__value{
+  font-size: 35rpx;
+}
+.button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50rpx;
+}

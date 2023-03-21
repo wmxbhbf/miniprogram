@@ -1,0 +1,38 @@
+<view id="qiandao">
+  <view wx:if="{{role=='教师'}}">
+    <view class="card">
+      <van-cell-group inset>
+        <van-cell title="经度" value="{{longitude}}" />
+        <van-cell title="纬度" value="{{latitude}}" />
+        <van-cell title="当前时间" value="{{create_time}}"/>
+      </van-cell-group>
+    </view>
+    <view class="button">
+      <van-button type="primary" bindtap="getMap">点击获取位置</van-button>
+      <van-button type="primary" bindtap="Record">开始签到</van-button>
+    </view>
+  </view>
+  <view wx:else="{{role=='学生'}}">
+    <view class="card" >
+      <van-cell-group inset>
+        <van-cell title="签到经度" value="{{place.longitude}}" />
+        <van-cell title="签到纬度" value="{{place.latitude}}" />
+      </van-cell-group>
+      <view class="button">
+        <van-button type="primary" bindtap="getInformation">获取签到位置</van-button>
+      </view>
+    </view>
+    <view class="card">
+      <van-cell-group inset>
+        <van-cell title="我的经度" value="{{longitude}}" />
+        <van-cell title="我的纬度" value="{{latitude}}" />
+        <van-cell title="当前时间" value="{{create_time}}"/>
+        <van-cell title="距离签到位置" value="{{distance}}"/>
+      </van-cell-group>
+    </view>
+    <view class="button">
+      <van-button type="primary" bindtap="getMap">获取我的位置</van-button>
+      <van-button type="primary" bindtap="getContrast">立即签到</van-button>
+    </view>
+  </view>
+</view>

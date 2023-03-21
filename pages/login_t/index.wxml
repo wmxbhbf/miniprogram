@@ -1,0 +1,28 @@
+<view class="content">
+  <image class="logo" src="/images/登陆.png" mode="widthFix"></image>
+  <view class="title">
+    <text>教师登陆</text>
+  </view>
+  <view class="cell">
+    <van-cell-group>
+      <van-field
+        required
+        label="用户名"
+        placeholder="请输入用户名"
+        bind:change="getUserName"
+      />
+    </van-cell-group>
+    <van-cell-group>
+      <van-field
+        type="password"
+        label="密码"
+        placeholder="请输入密码"
+        required
+        bind:change="getUserPassWord"
+      />
+    </van-cell-group>
+  </view>
+  <view class="button">
+    <van-button type="primary" bindtap="login">登陆</van-button>
+  </view>
+</view>

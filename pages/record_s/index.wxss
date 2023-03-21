@@ -1,0 +1,17 @@
+#qiandao{
+  width: 100%;
+  background: #EAEAEA;
+}
+.card{
+  padding-top: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.van-button{
+  margin-top: 40rpx;
+}

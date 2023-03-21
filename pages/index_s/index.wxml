@@ -1,0 +1,65 @@
+<view id="shouye">
+  <view class="top">
+    <image src="/images/top.jpg" mode="widthFix" />
+  </view>
+  <view wx:if="{{role=='学生'}}" class="nav">
+    <van-tabs active="{{ active }}" bind:change="onChange" sticky animated>
+      <van-tab title="添加课程" class="neirong">
+        <view class="card" wx:for="{{datalist}}" wx:for-index="index" wx:key="key">
+          <van-card 
+          title="{{item.name}}" 
+          desc="任课老师: {{item.teacherName}}" 
+          tag="{{item.code}}" 
+          thumb="{{ imageURL }}">
+            <view slot="footer">
+              <van-button size="small" data-index="{{index}}" bindtap="addcourse">添加课程</van-button>
+            </view>
+          </van-card>
+        </view>
+      </van-tab>
+      <van-tab title="我的课程">
+        <view class="card" wx:for="{{mydata}}" wx:for-index="index" wx:key="key" >
+          <view style="display: none">
+            {{index}}
+          </view>
+          <van-card 
+          title="{{item.name}}" 
+          desc="任课老师: {{item.teacher_name}}" 
+          tag="{{item.code}}" 
+          thumb="{{ imageURL }}">
+            <view slot="footer">
+              <van-button size="small" bindtap="goRecord" data-index="{{index}}">签到</van-button>
+              <van-button size="small" bindtap="goSelect" data-index="{{index}}">查看签到</van-button>
+            </view>
+          </van-card>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+  <view wx:else="{{role=='教师'}}" class="nav">
+    <van-tabs active="{{ active }}" bind:change="onChange" sticky animated>
+      <van-tab title="我的课程" class="neirong">
+        <view class="card" wx:for="{{teacherdata}}" wx:key="key">
+          <van-card 
+          title="{{item.name}}" 
+          desc="任课老师: {{item.teacherName}}" 
+          tag="{{item.code}}" 
+          thumb="{{ imageURL }}">
+          </van-card>
+        </view>
+      </van-tab>
+      <van-tab title="查看学生">
+        <view class="card" wx:for="{{studentlist}}" wx:key="key">
+          <van-card 
+          title="{{item.username}}" 
+          tag="{{item.nianji}}"
+          desc="专业: {{item.zhuanye}}" 
+          thumb="{{ imageURL }}">
+          </van-card>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
+<view class="footer">
+</view>

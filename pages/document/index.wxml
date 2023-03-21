@@ -1,0 +1,17 @@
+<view id="document">
+  <view wx:if="{{role=='学生'}}">
+    <view class="cell" wx:for="{{recordList}}" wx:key="key">
+      <van-cell-group inset>
+      <van-cell title="{{item.name}}" value="{{item.state}}" label="{{item.createTime}}" />
+      </van-cell-group>
+    </view>
+  </view>
+
+  <view wx:else="{{role=='教师'}}">
+    <view class="cell" wx:for="{{studentList}}" wx:key="key">
+      <van-cell-group inset>
+      <van-cell title=" 签到编号: {{item.call_id}}" value="{{item.username}}" label="{{item.state}}" />
+      </van-cell-group>
+    </view>
+  </view>
+</view>

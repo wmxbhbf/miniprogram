@@ -1,0 +1,41 @@
+#shouye{
+  width: 100%;
+  background: #EAEAEA;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+image{
+  border-radius: 20rpx;
+}
+.nav{
+  padding: 10rpx 60rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.card{
+  margin-top: 10rpx;
+}
+
+.van-card__title{
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  font-size: 35rpx;
+}
+.van-card__desc{
+  font-size: 28rpx;
+}
+
+.van-card__img{
+  margin-top: 15rpx;
+}
+.van-button{
+  margin-top: -40rpx;
+}
+.footer{
+  width: 100rpx;
+  height: 40rpx;
+  margin: 60rpx;
+}
